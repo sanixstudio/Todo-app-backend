@@ -33,9 +33,12 @@ router.post("/add", async (req, res) => {
 
 // update to-do item
 router.put("/update/:id", async (req, res) => {
-    const { id } = req.params;
     try {
-        const todoItem = await Todo;
+        const updateTodo = await Todo.findOneAndUpdate(
+            { _id: req.params.id },
+            { $set: { text: req.body.text, isCompleted: req.body.isCompleted } }
+        );
+        res.json({ msg: "update success" });
     } catch (err) {
         res.status(500).json({ msg: err.message });
     }
@@ -48,7 +51,7 @@ router.delete("/delete/:id", async (req, res) => {
             _id: req.params.id,
         });
         if (!removedTodoItem)
-            return res.status(400).json({ msg: "Invalid ID" });
+            return res.status(401).json({ msg: "Unauthorized" });
         res.json({ msg: "Todo item removed" });
     } catch (err) {
         res.status(500).json({ msg: err.message });
