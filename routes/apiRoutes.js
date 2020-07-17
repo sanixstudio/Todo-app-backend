@@ -34,10 +34,11 @@ router.post("/add", async (req, res) => {
 // update to-do item
 router.put("/update/:id", async (req, res) => {
     try {
-        const updateTodo = await Todo.findOneAndUpdate(
+        const updatedTodo = await Todo.findOneAndUpdate(
             { _id: req.params.id },
             { $set: { text: req.body.text, isCompleted: req.body.isCompleted } }
         );
+        if (!updatedTodo) return res.status(401).json({ msg: "Unauthorized" });
         res.json({ msg: "update success" });
     } catch (err) {
         res.status(500).json({ msg: err.message });
