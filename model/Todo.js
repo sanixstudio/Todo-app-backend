@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const TodoSchema = mongoose.Schema({
+const todoSchema = mongoose.Schema({
     text: {
         type: String,
         required: true,
@@ -10,4 +10,4 @@ const TodoSchema = mongoose.Schema({
     },
 });
 
-module.exports = mongoose.Model("Todo", TodoSchema);
+module.exports = mongoose.model("Todo", todoSchema);
