@@ -5,7 +5,7 @@ const Todo = require("../model/Todo");
 // get all todos in the database
 router.get("/", async (req, res) => {
     try {
-        const todos = await Todo.find({});
+        const todos = await Todo.find({}).sort({ date: -1 });
         if (!todos)
             res.status(400).json({ msg: "Something went wrong, bad request" });
         res.json(todos);
