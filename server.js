@@ -6,15 +6,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 // Connection to database
-const mongoose = require("mongoose");
-mongoose
-    .connect(process.env.DB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-    })
-    .then(() => console.log("Database connection successful"))
-    .catch((err) => console.log(err));
+require("./Database/Connection");
 
 //Middleware
 app.use(cors());

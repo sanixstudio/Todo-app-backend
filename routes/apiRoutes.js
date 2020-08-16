@@ -1,14 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const Todo = require("../model/Todo");
+const { isValidObjectId } = require("mongoose");
 
 // get all todos in the database
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
     try {
         const todos = await Todo.find({}).sort({ date: -1 });
         if (!todos)
             res.status(400).json({ msg: "Something went wrong, bad request" });
         res.json(todos);
+    } catch (err) {
+        res.status(500).json({ msg: err.message });
+    }
+});
+
+// get single todo item
+router.get("/find/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const todo = await Todo.findOne({ _id: id });
+        if (!todo) return res.status(400).json({ msg: "Sorry no result" });
+        res.json(todo);
     } catch (err) {
         res.status(500).json({ msg: err.message });
     }
