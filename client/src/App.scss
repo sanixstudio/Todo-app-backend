@@ -1,0 +1,52 @@
+@import "~bootstrap/scss/bootstrap";
+
+.checked {
+    text-decoration: line-through;
+}
+
+.add-new-btn {
+    color: #fff !important;
+}
+
+.add-btn {
+    padding: 0 1em !important;
+}
+
+.add-btn:hover,
+.add-btn:active {
+    outline: none !important;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.add-btn:focus {
+    outline: none !important;
+}
+
+.fa {
+    cursor: pointer;
+    font-size: larger;
+    padding: 5px;
+    transition: 0.2s;
+    opacity: 0.5;
+}
+
+.controls:hover,
+.fa-plus {
+    opacity: 1;
+}
+
+.todo-bg {
+    background: rgba(85, 142, 175, 0.3) !important;
+}
+
+.large-check-box {
+    width: 20px;
+    height: 20px;
+}
+
+.alert {
+    position: fixed;
+    top: 10px;
+    opacity: 0;
+    transition: 0.3s;
+}

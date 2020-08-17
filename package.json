@@ -4,11 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "client-install": "npm install --prefix client",
-        "start": "node server.js",
+        "dev": "node server.js",
         "client": "npm start --prefix client",
         "server": "nodemon server.js",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
+        "start": "concurrently \"npm run server\" \"npm run client\""
     },
     "keywords": [],
     "author": "",
