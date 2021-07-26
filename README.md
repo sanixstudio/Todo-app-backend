@@ -1,6 +1,8 @@
 # Todo-app (Backend)
 👉 Here is the [Front-End](https://github.com/sanixstudio/todo-app-front-end.git)
 
+Open app: [Demo](https://mern-todo-appv1.netlify.app/)
+
 # Description:
 A simple Todo App that allows user to create, read, update, and delete notes that remains persistent in the browser.This app demonstate back-end setup using Node evironment with npm packages like (express, cors, dotenv, and mongdb etc) and front-end setup using react, bootstrap and framer-motion. 
 
